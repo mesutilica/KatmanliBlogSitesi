@@ -1,11 +1,11 @@
 ﻿using KatmanliBlogSitesi.Entites;
 using KatmanliBlogSitesi.Service.Abstract;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KatmanliBlogSitesi.WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize]
     public class CategoriesController : Controller
     {
         private readonly IService<Category> _service;
@@ -57,39 +57,50 @@ namespace KatmanliBlogSitesi.WebUI.Areas.Admin.Controllers
         }
 
         // GET: CategoriesController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> EditAsync(int id)
         {
-            return View();
+            var model = await _service.FindAsync(id);
+            return View(model);
         }
 
         // POST: CategoriesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> EditAsync(int id, Category category)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                     _service.Update(category);
+                    await _service.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "Hata Oluştu!");
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(category);
         }
 
         // GET: CategoriesController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(int id)
         {
-            return View();
+            var model = await _service.FindAsync(id);
+            return View(model);
         }
 
         // POST: CategoriesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> DeleteAsync(int id, Category category)
         {
             try
             {
+                _service.Delete(category);
+                await _service.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
