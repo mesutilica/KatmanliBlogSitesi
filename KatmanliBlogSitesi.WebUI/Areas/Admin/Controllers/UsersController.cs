@@ -38,52 +38,70 @@ namespace KatmanliBlogSitesi.WebUI.Areas.Admin.Controllers
         // POST: UsersController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateAsync(User user)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    await _service.AddAsync(user);
+                    await _service.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "Hata Oluştu!");
+                }
             }
-            catch
-            {
-                return View();
-            }
+            
+            return View(user);
         }
 
         // GET: UsersController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> EditAsync(int id)
         {
-            return View();
+            var model = await _service.FindAsync(id);
+            return View(model);
         }
 
         // POST: UsersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> EditAsync(int id, User user)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _service.Update(user);
+                    await _service.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "Hata Oluştu!");
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(user);
         }
 
         // GET: UsersController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(int id)
         {
-            return View();
+            var model = await _service.FindAsync(id);
+            return View(model);
         }
 
         // POST: UsersController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, User user)
         {
             try
             {
+                _service.Delete(user);
+                _service.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch

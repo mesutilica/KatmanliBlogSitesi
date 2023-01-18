@@ -1,4 +1,6 @@
-﻿using KatmanliBlogSitesi.WebUI.Models;
+﻿using KatmanliBlogSitesi.Entites;
+using KatmanliBlogSitesi.Service.Abstract;
+using KatmanliBlogSitesi.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,16 +8,17 @@ namespace KatmanliBlogSitesi.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IService<Post> _postService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IService<Post> service)
         {
-            _logger = logger;
+            _postService = service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            List<Post> model = await _postService.GetAllAsync();
+            return View(model);
         }
 
         public IActionResult Privacy()

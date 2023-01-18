@@ -1,0 +1,27 @@
+﻿@model Post
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<article>
+    <!-- Post header-->
+    <header class="mb-4">
+        <!-- Post title-->
+        <h1 class="fw-bolder mb-1">@Model.Name</h1>
+        <!-- Post meta content-->
+        <div class="text-muted fst-italic mb-2">@Model.CreateDate</div>
+        <!-- Post categories-->
+        <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+        <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+    </header>
+    <!-- Preview image figure-->
+    <figure class="mb-4"><img class="img-fluid rounded" src="/Img/@Model.Image" alt="@Model.Name"></figure>
+    <!-- Post content-->
+    <section class="mb-5">
+        <p class="fs-5 mb-4">
+            @Html.Raw(Model.Description)
+        </p>
+    </section>
+</article>
+
