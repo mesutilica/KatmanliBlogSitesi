@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatmanliBlogSitesi.WebUI", "KatmanliBlogSitesi.WebUI\KatmanliBlogSitesi.WebUI.csproj", "{CB65C381-2280-48BF-894A-AAB08D5DAAF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KatmanliBlogSitesi.WebUI", "KatmanliBlogSitesi.WebUI\KatmanliBlogSitesi.WebUI.csproj", "{CB65C381-2280-48BF-894A-AAB08D5DAAF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatmanliBlogSitesi.Entites", "KatmanliBlogSitesi.Entites\KatmanliBlogSitesi.Entites.csproj", "{85B05CCF-F7D7-43B4-9044-D21A4E2864E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KatmanliBlogSitesi.Entites", "KatmanliBlogSitesi.Entites\KatmanliBlogSitesi.Entites.csproj", "{85B05CCF-F7D7-43B4-9044-D21A4E2864E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatmanliBlogSitesi.Data", "KatmanliBlogSitesi.Data\KatmanliBlogSitesi.Data.csproj", "{7A12B752-D4EB-4872-A60A-C7F14816C7E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KatmanliBlogSitesi.Data", "KatmanliBlogSitesi.Data\KatmanliBlogSitesi.Data.csproj", "{7A12B752-D4EB-4872-A60A-C7F14816C7E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatmanliBlogSitesi.Service", "KatmanliBlogSitesi.Service\KatmanliBlogSitesi.Service.csproj", "{C0973249-96B5-4C27-B37B-B15A6F2262C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KatmanliBlogSitesi.Service", "KatmanliBlogSitesi.Service\KatmanliBlogSitesi.Service.csproj", "{C0973249-96B5-4C27-B37B-B15A6F2262C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatmanliBlogSitesi.WebAPI", "KatmanliBlogSitesi.WebAPI\KatmanliBlogSitesi.WebAPI.csproj", "{0DCBF015-7928-4620-B83E-51B402247B38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C0973249-96B5-4C27-B37B-B15A6F2262C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0973249-96B5-4C27-B37B-B15A6F2262C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0973249-96B5-4C27-B37B-B15A6F2262C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DCBF015-7928-4620-B83E-51B402247B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DCBF015-7928-4620-B83E-51B402247B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DCBF015-7928-4620-B83E-51B402247B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DCBF015-7928-4620-B83E-51B402247B38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

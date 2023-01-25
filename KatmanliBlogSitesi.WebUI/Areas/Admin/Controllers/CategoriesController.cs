@@ -72,7 +72,7 @@ namespace KatmanliBlogSitesi.WebUI.Areas.Admin.Controllers
             {
                 try
                 {
-                     _service.Update(category);
+                    _service.Update(category);
                     await _service.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
