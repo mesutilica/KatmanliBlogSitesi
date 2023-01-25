@@ -1,0 +1,21 @@
+﻿@model CategoryViewModel
+
+@{
+    ViewData["Title"] = Model.Category.Name;
+}
+
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">@Model.Category.Name</h1>
+            <p class="lead mb-0">@Model.Category.Description</p>
+        </div>
+    </div>
+</header>
+
+<div class="row">
+    @foreach (var item in Model.Posts)
+    {
+        <partial name="_PostList" model="item" />
+    }
+</div>

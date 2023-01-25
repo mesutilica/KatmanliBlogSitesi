@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Post>
 
 @{
-    ViewData["Title"] = "Anasayfa";
+    ViewData["Title"] = "Blog İçerikleri";
 }
 
 <header class="py-5 bg-light border-bottom mb-4">
     <div class="container">
         <div class="text-center my-5">
             <h1 class="fw-bolder">Blog Siteme Hoş Geldiniz!</h1>
-            <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+            <p class="lead mb-0">Tüm blog gönderileri</p>
         </div>
     </div>
 </header>
@@ -16,6 +16,6 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        @await Html.PartialAsync("_PostList", item);
+        <partial name="_PostList" model="item" />
     }
 </div>

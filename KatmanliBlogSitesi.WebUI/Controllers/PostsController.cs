@@ -13,9 +13,14 @@ namespace KatmanliBlogSitesi.WebUI.Controllers
             _postService = postService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            return View(await _postService.GetAllAsync());
+        }
+
+        public async Task<IActionResult> Search(string ara)
+        {
+            return View(await _postService.GetAllAsync(p => p.Name.Contains(ara)));
         }
 
         public async Task<IActionResult> DetailAsync(int id)

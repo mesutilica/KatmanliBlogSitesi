@@ -25,6 +25,9 @@
                         @await Component.InvokeAsync("Categories")
                     </ul>
                 </div>
+                <form asp-controller="Posts" asp-action="Search">
+                    <input type="text" name="ara" class="form-control" placeholder="İçerik Ara" />
+                </form>
             </div>
         </nav>
     </header>

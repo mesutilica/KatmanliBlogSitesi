@@ -1,0 +1,13 @@
+﻿@model Post
+
+<div class="col-lg-4">
+    <div class="card mb-4">
+        <a href="/Posts/Detail/@Model.Id"><img class="card-img-top" src="/Img/@Model.Image" style="height: 276px" alt="@Model.Image"></a>
+        <div class="card-body">
+            <div class="small text-muted">@Model.CreateDate</div>
+            <h2 class="card-title h4">@Model.Name</h2>
+           
+            <a class="btn btn-primary" asp-controller="Posts" asp-action="Detail" asp-route-id="@Model.Id">Devamını Oku →</a>
+        </div>
+    </div>
+</div>
